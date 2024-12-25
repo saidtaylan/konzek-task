@@ -1,0 +1,16 @@
+[Unit]
+Description=FastAPI Service
+After=network.target
+
+[Service]
+Type=simple
+User=konzek
+WorkingDirectory=/opt/konzek-task
+# Öüne bir reverse proxy konulması amacıyla host'u localhost olarak bırakıldı
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=always
+StandardOutput=append:/var/log/konzek.log
+StandardError=append:/var/log/konzek.log
+
+[Install]
+WantedBy=multi-user.target
