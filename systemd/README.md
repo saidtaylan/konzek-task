@@ -1,4 +1,7 @@
-### Systemd ile IP adresi gösteren bir Python Web Server Uygulaması
+##### A FASTAPI IP Viewer Web Server Application Deploy With Systemd
 
-###### Commands.sh dosyasındaki komutlar ile servisi kurup başlatabilirsiniz.
+###### Run Service using:
+````bash
+bash commands.sh
+````
 

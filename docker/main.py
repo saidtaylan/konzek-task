@@ -11,7 +11,8 @@ def read_root(req: Request):
     ip = req.client.host
     return {
         "Message": "Hello there",
-        'Your IP': ip
+        'Load balancer IP': ip,
+        'Your Real IP': req.headers.get("X-Forwarded-For", '').split(',')[0]
     }
 
 if __name__ == "__main__":

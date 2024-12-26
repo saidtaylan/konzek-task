@@ -1,7 +1,8 @@
 #!bin/bash
 
 # İlgili git reposunun /opt/konzek-task konumuna klonlandığını varsayarak aşağıdaki işlemleri yapıyorum:
-cd /opt/konzek-task/systemd
+git clone https://github.com/saidtaylan/konzek-task.git
+cd konzek-task/systemd
 
 pip3 install -r requirements.txt
 
