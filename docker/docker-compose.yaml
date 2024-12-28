@@ -1,15 +1,19 @@
 services:
-  servers:
+  server_1:
     build: .
-    deploy:
-      mode: replicated
-      replicas: 2
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
+    environment:
+      PORT: "8000"
+      HOST: "127.0.0.1"
     networks:
-      - konzek
+    - konzek
+ 
+  server_2:
+    build: .
+    environment:
+      PORT: "8001"
+      HOST: "127.0.0.1"
+    networks:
+    - konzek
 
   nginx_1:
     container_name: nginx_proxy_1
