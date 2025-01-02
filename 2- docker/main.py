@@ -1,4 +1,6 @@
+import os
 from typing import Union
+
 
 import uvicorn
 from fastapi import FastAPI
@@ -11,7 +13,6 @@ def read_root(req: Request):
     ip = req.client.host
     return {
         "Message": "Hello there",
-        'Your IP': ip
     }
 
 if __name__ == "__main__":
