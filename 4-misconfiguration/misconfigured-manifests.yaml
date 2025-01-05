@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: konzek-app
+  labels:
+    app: konzek-app
+spec:
+  selector:
+    matchLabels:
+      app: konzek-app
+  template:
+    metadata:
+      labels:
+        app: konzek-app
+    spec:
+      containers:
+      - name: konzek-app
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: konzek-app-svc
+  labels:
+    app: konzek-app
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+  selector:
+    app: konzek-app
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: konzek-app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: konzek.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: konzek-app-svc
+            port:
+              number: 80

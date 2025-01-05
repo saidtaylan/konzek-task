@@ -3,10 +3,10 @@
 #### How to Set Up
 
 1. Clone the Repository and Navigate:
-````bash
+```bash
 git clone https://github.com/saidtaylan/konzek-task.git
-cd konzek-task/docker
-````
+cd konzek-task/2-docker
+```
 This command downloads the project files from GitHub to your local machine.
 
 2. Run the following command to start everything in the background:
